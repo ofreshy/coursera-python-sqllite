@@ -6,12 +6,11 @@ import re
 import sqlite3
 
 CUR_DIR = path.dirname(path.abspath(__file__))
-SOURCE_DIR = path.join(path.dirname(CUR_DIR), "source")
 EMAIL_REGEX = re.compile('^From .+?@(\S*[a-zA-Z]) ?')
 
 
 def main():
-    input_file = path.join(SOURCE_DIR, "mbox.txt")
+    input_file = path.join(CUR_DIR, "mbox.txt")
     with open(input_file) as fs:
         email_counts = Counter()
         for line in fs:
@@ -19,7 +18,7 @@ def main():
             if m:
                 email_counts[m.group(1)] += 1
 
-        print (email_counts.most_common(10))
+        print(email_counts.most_common(10))
         con = None
         try:
             con = sqlite3.connect('emaildb.sqlite')
