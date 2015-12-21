@@ -100,7 +100,7 @@ def insert_records(cur, records):
     print('Albums : %s' % get_count('Album'))
     print('Genres : %s' % get_count('Genre'))
     print('Artists: %s' % get_count('Artist'))
-    print('Tracks: %s '% get_count('Track'))
+    print('Tracks: %s ' % get_count('Track'))
 
 
 
